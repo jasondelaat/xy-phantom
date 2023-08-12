@@ -1,0 +1,19 @@
+body {
+ margin-right : auto;
+ margin-left : auto;
+ width : 8.5in;
+}
+
+.theorem { margin-left : 1in ; margin-right : 1in; padding-left : 0.25in; padding-right : 0.25in; border: 1px solid black; background: lightgray;}
+
+.can {
+  text-align: center;
+}
+
+details {border : 1px solid black; padding-left: 1em; padding-right: 1em; background : lightgray; }
+summary * {display : inline;}
+img {border : 1px solid black;}
+.org-center table {margin-right: auto; margin-left: auto;}
+
+.left {text-align: left; width: 30%; margin-right: auto; margin-left: auto;}
+.shrink img {width: 265px;}

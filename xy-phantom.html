@@ -1,0 +1,1437 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2023-08-12 Sat 07:48 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>The Phantom of the XY-Plane</title>
+<meta name="author" content="Jason DeLaat" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel='stylesheet' href='./style.css' />
+<script src='./javascript/util.js'></script>
+<script src='./javascript/typeclass.js'></script>
+<script src='./javascript/types.js'></script>
+<script src='./javascript/xy-types.js'></script>
+<script src='./javascript/draw.js'></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">The Phantom of the XY-Plane
+<br />
+<span class="subtitle">The Geometry of Quadratic Functions and their Complex Roots</span>
+</h1>
+<p>
+I recently realized that I had never learned any kind of geometric
+intuition for the complex roots of quadratic functions. That seemed
+odd to me. Not that I needed one neccesarily. I was always happy to
+just accept complex roots as a consequence of the algebra and get on
+with my life. But it still seemed strange.
+</p>
+
+<p>
+The geometric meaning of <i>real</i> roots is easy: It&rsquo;s just the points
+where the function crosses the x-axis. Why didn&rsquo;t I have—or why was I
+never taught—a similarly straight-forward geometric interpretation for
+complex roots? Was it just that there wasn&rsquo;t one? That didn&rsquo;t seem
+right.
+</p>
+
+<div class="figure" id="orgac3ef25">
+<p>
+<img src="images/with-roots.png" alt="with-roots.png" />
+<img src="images/without-roots.png" alt="without-roots.png" />
+</p>
+
+</div>
+
+<p>
+Once I&rsquo;d thought to ask the question, finding one wasn&rsquo;t all that
+hard. In hindsight it actually seems pretty obvious. My first thought
+was, &ldquo;hey, that&rsquo;s really neat!&rdquo; followed almost immediately by, &ldquo;well
+of course that&rsquo;s what it is. What else could it possibly have been?
+Duh.&rdquo;
+</p>
+
+<p>
+It seemed so obvious that I seriously considered not writing this at
+all. Maybe it <i>is</i> really obvious and I&rsquo;ve just somehow managed to
+miss it entirely for twenty-odd years. That&rsquo;s entirely possible but,
+in the end, if I&rsquo;ve missed it, probably other people have too and
+hopefully someone finds it interesting.
+</p>
+
+<p>
+There&rsquo;s more to see if you&rsquo;ve the got the time or inclination but I
+don&rsquo;t want to waste anybody&rsquo;s time so I&rsquo;ll cut to the chase.
+</p>
+
+<div class="theorem" id="org6083364">
+<p>
+<span class="underline"><b>Geometric Interpretation of Complex Roots - The Phantom Parabola</b></span>
+</p>
+
+<p>
+A quadratic function can be thought of as having a &ldquo;phantom&rdquo;—or
+imaginary—parabola associated with it. For quadratic function \(f\) with
+minimum (or maximum) point at coordinates \((x_{min}, y_{min})\), the
+phantom is constructed by reflecting \(f\) across the line \(y = y_{min}\)
+and then translating so it&rsquo;s centered on the y-axis.
+</p>
+
+<p>
+Then \(f\) has complex (or purely imaginary) roots if and only if its
+phantom crosses the x-axis: The real part of the solution is \(x_{min}\);
+the coefficients of the imaginary parts are the roots of the
+phantom.
+</p>
+
+<div class="can" id="orge98e1b6">
+
+<div id="orgba899e4" class="figure">
+<p><img src="images/finding-roots.gif" alt="finding-roots.gif" />
+</p>
+</div>
+
+<p>
+<b>Finding complex roots by constructing the phantom for</b><br />
+<b>\(f(x) = x^2 - 2x + 5\)</b>
+</p>
+
+</div>
+
+</div>
+
+<p>
+If that&rsquo;s all you&rsquo;re interested in or have time for then we&rsquo;re done!
+But if you want to come along for the ride of me figuring it out and/or a
+rough idea of how I might <i>wish</i> this subject were taught, read on!
+</p>
+
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org3b43781">The Geometry of Quadratic Functions</a>
+<ul>
+<li><a href="#org6abcb57">The Simplest Quadratic Formula (real roots)</a></li>
+<li><a href="#org68c3a04">The Simplest Quadratic Formula (complex roots)</a>
+<ul>
+<li><a href="#org8547ad6">Pure Imaginary Inputs</a></li>
+<li><a href="#org0638051">Complex Inputs</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgeeab73e">Loose Ends</a>
+<ul>
+<li><a href="#orgf12d15b">Does it generalize?</a></li>
+<li><a href="#org82ae8dc">The Phantom&rsquo;s Fangs</a></li>
+<li><a href="#org8a668c1">Higher Order Polynomial Functions</a></li>
+<li><a href="#orgad59360">Geometric Algebra</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org3b43781" class="outline-2">
+<h2 id="org3b43781">The Geometry of Quadratic Functions</h2>
+<div class="outline-text-2" id="text-org3b43781">
+<p>
+When we were first introduced to quadratics at my school we spent a
+bit of time graphing, transforming and translating them around the
+plane. But not much. I don&rsquo;t think we ever really referenced the
+actual geometry of parabolas again. It was all algebra, all the time.
+</p>
+
+
+<p>
+When it was time to start finding roots we naturally started with
+functions that had real roots. The very first technique we learned was
+factoring the function into a pair of binomials, \((x - r_1)(x - r_2)\),
+from which we could see the roots were \(r_1\) and \(r_2\).  Once
+we got good at factoring, we met quadratics that were not easily
+factored and learned about completing the square. And once we&rsquo;d well
+and truly mastered <i>that</i>, we were walked through how to use it to
+derive the quadratic formula. We weren&rsquo;t actually required to know how
+to derive the quadratic formula though. We were just told to memorize
+it. Missing from this list is a way to find roots without using <i>any</i>
+of those methods but just a few simple geometric facts about
+quadratics.
+</p>
+</div>
+
+<div id="outline-container-org6abcb57" class="outline-3">
+<h3 id="org6abcb57">The Simplest Quadratic Formula (real roots)</h3>
+<div class="outline-text-3" id="text-org6abcb57">
+<p>
+There&rsquo;s <i>the</i> quadratic formula and there&rsquo;s even a <a href="https://www.technologyreview.com/2019/12/06/131673/a-new-way-to-make-quadratic-equations-easy/">simple quadratic
+formula</a>; I propose the &ldquo;simplest&rdquo; quadratic formula. At least for
+quadratics of the form \(f(x) = x^2 + bx + c\). It&rsquo;s so simple, in fact,
+that I feel like it&rsquo;s kind of a, &ldquo;missing the forest for the trees,&rdquo;
+situation. The derivation of the simple quadratic formula I just
+linked to uses this fact but just drives right on past without
+pointing out the relevant geometry. Or perhaps the relevant geometry
+just doesn&rsquo;t <i>seem</i> relevant.
+</p>
+
+<div class="theorem" id="org653826e">
+<p>
+<span class="underline"><b>The Simplest Quadratic Formula</b></span>
+</p>
+
+<p>
+For quadratic function \(f(x) = x^2 + bx + c\), the real roots are
+horizontally symmetric around the function&rsquo;s minimum point. The
+<i>horizontal</i> distance from the minimum to a root is the square root of
+the minimum point&rsquo;s <i>vertical</i> distance below the x-axis.
+</p>
+
+<p>
+If the function&rsquo;s minimum point has coordinates \((x_{min}, y_{min})\)
+then it&rsquo;s roots are found at:
+</p>
+
+
+\begin{align}
+\label{eq:simplest-quad-formula}
+x &= x_{min} \pm \sqrt{-y_{min}}
+\end{align}
+
+<p>
+It&rsquo;s the square root of \(-y_{min}\) because for quadratics of the given
+form with real roots, \(y_{min}\) will always be below the x-axis—always
+negative—so \(\sqrt{-y_{min}}\) will always be a real rather than
+imaginary number.
+</p>
+
+<div class="figure" id="orgb5a301e">
+
+<div id="org4e3a162" class="figure">
+<p><img src="images/geo-real.png" alt="geo-real.png" />
+</p>
+<p><span class="figure-number">Figure 1: </span><br />
+ <b>Using the function&rsquo;s minimum as a landmark to find real roots.</b></p>
+</div>
+
+</div>
+
+</div>
+
+<p>
+We&rsquo;re already getting into, &ldquo;isn&rsquo;t that kind of obvious?&rdquo;
+territory. I mean, it&rsquo;s <i>right there</i> staring us in the face. But for
+some reason this was never presented, at least in my school, as a way
+to find the roots.
+</p>
+
+<p>
+I say this is the simplest quadratic formula not just because it has
+fewer terms than the others, which it does, but because those terms
+are related to a significant geometric property of the function which
+makes it more than just a mish-mash of symbols to memorize. It&rsquo;s so
+simple that even if students somehow manage to forget it, they can
+derive it for themselves as long as they can remember the basic idea
+of using the minimum as a landmark and sketch some version
+of Figure <a href="#org4e3a162">1</a>.
+</p>
+
+<p>
+Of course, all of this begs the question of how to actually <i>find</i> the
+minimum but that&rsquo;s actually pretty easy. Just a bit more geometric
+reasoning will get us there.
+</p>
+
+<p>
+First of all, \(y_{min}\) is just \(f(x_{min})\) so we can rewrite
+(\ref{eq:simplest-quad-formula}) as
+</p>
+
+\begin{align*}
+x = x_{min} \pm \sqrt{-f(x_{min})}
+\end{align*}
+
+<p>
+so the only thing we actually need to find is \(x_{min}\).
+</p>
+
+<p>
+Since quadratics are symmetric \(x_{min}\) will always be the halfway
+between the real roots \(r_1\) and \(r_2\). That is,
+</p>
+
+\begin{align}
+\label{eq:root-average}
+x_{min} = \frac{r_1 + r_2}{2}.
+\end{align}
+
+<p>
+The function itself can be constructed by multiplying binomials,
+</p>
+
+\begin{align}
+f(x) &= (x - r_1)(x - r_2) \nonumber \\
+\label{fn:quad-from-roots}
+&= x^2 - (r_1 + r_2)x + r_1r_2
+\end{align}
+
+<p>
+which gives a quadratic of the same form as the one used to construct
+(\ref{eq:simplest-quad-formula}). From (\ref{fn:quad-from-roots}) we
+have the coefficient
+</p>
+\begin{align*}
+b = -(r_1 + r_2).
+\end{align*}
+
+<p>
+Dividing both sides by \(-2\) gives
+</p>
+\begin{align*}
+\frac{b}{-2} = \frac{r_1 + r_2}{2}.
+\end{align*}
+
+<p>
+So by (\ref{eq:root-average}),
+</p>
+\begin{align}
+\label{def:x-min}
+x_{min} = \frac{-b}{2}.
+\end{align}
+
+<p>
+So you have some quadratic \(f\) and need to find it&rsquo;s roots? No problem:
+</p>
+
+<div class="theorem" id="org64b8c26">
+<p>
+<span class="underline"><b>Using the &ldquo;Simplest&rdquo; Quadratic Formula</b></span>
+</p>
+<div class="org-center">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-right">1.</td>
+<td class="org-left">Divide \(b\) by \(-2\). (Find \(x_{min}\).)</td>
+</tr>
+
+<tr>
+<td class="org-right">2.</td>
+<td class="org-left">Plug the result of step 1 into \(f\). (Find \(y_{min}\).)</td>
+</tr>
+
+<tr>
+<td class="org-right">3.</td>
+<td class="org-left">Multiply <i>that</i> result by \(-1\) and take the square root. (Horizontal distance to a root.)</td>
+</tr>
+
+<tr>
+<td class="org-right">4.</td>
+<td class="org-left">Roots are at the result of step 1, plus or minus the result of step 3. (\(x_{min} \pm \sqrt{-y_{min}}\))</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<p>
+<span class="underline"><b>Example</b></span>
+</p>
+
+<p>
+Find the roots of \(f(x) = x^2 +4x - 5\).
+</p>
+
+<ol class="org-ol">
+<li>\(x_{min} = \frac{-b}{2} = -2\)</li>
+<li>\(f(-2) = (-2)^2 + 4(-2) -5 = -9\)</li>
+<li>\(\sqrt{-(-9)} = 3\)</li>
+<li>The roots are at</li>
+</ol>
+
+\begin{align*}
+x &= -2 \pm 3\\
+x &= -5, 1.
+\end{align*}
+
+<div class="figure" id="org04c4e26">
+
+<div id="org35358a6" class="figure">
+<p><img src="images/example-1.png" alt="example-1.png" />
+</p>
+<p><span class="figure-number">Figure 2: </span><br />
+ <b>Roots of \(f(x) = x^2 + 4x - 5\)</b></p>
+</div>
+
+</div>
+
+<p>
+<a id="orgb793486"></a>
+<span class="underline"><b>Example - The Simple Quadratic Formula</b></span>
+</p>
+
+<p>
+Find the roots of \(f(x) = x^2 +bx + c\).
+</p>
+
+<p>
+First find \(x_{min}\),
+</p>
+\begin{align*}
+x_{min} = \frac{-b}{2}.
+\end{align*}
+
+<p>
+Then find \(y_{min}\),
+</p>
+
+\begin{align*}
+y_{min} &= f(x_{min}) \\
+&= \left(\frac{-b}{2}\right)^2 + b\left(\frac{-b}{2}\right) + c\\
+&= \frac{b^2}{4} - \frac{b^2}{2} + c\\
+&= \frac{b^2 - 2b^2}{4} + c\\
+&= -\frac{b^2}{4} + c
+\end{align*}
+
+<p>
+Then the roots are at,
+</p>
+\begin{align*}
+x &= x_{min} \pm \sqrt{-y_{min}}\\
+&= -\frac{b}{2} \pm \sqrt{-\left(-\frac{b^2}{4} + c\right)}\\
+&= -\frac{b}{2} \pm \sqrt{\frac{b^2}{4} - c}.
+\end{align*}
+
+<p>
+This is the simple quadratic formula and it is—at least in my
+opinion—an even easier derivation than the one linked above with each
+term&rsquo;s relationship to the function&rsquo;s minimum made clear.
+</p>
+
+</div>
+</div>
+</div>
+
+<div id="outline-container-org68c3a04" class="outline-3">
+<h3 id="org68c3a04">The Simplest Quadratic Formula (complex roots)</h3>
+<div class="outline-text-3" id="text-org68c3a04">
+<p>
+We got to equation (\ref{eq:simplest-quad-formula}) from the geometry
+of <i>real</i> roots. What about complex roots? Is it the same formula?
+Spoilers: yes. But let&rsquo;s pretend we don&rsquo;t know that.
+</p>
+
+<p>
+The intuition is not so obvious in this case.
+</p>
+
+<div class="figure" id="orgc77ee80">
+
+<div id="orgc9c4896" class="figure">
+<p><img src="images/geo-imaginary-fail.png" alt="geo-imaginary-fail.png" />
+</p>
+<p><span class="figure-number">Figure 3: </span><br />
+ <b>The lack of geometric intuition for complex roots.</b></p>
+</div>
+
+</div>
+</div>
+
+<div id="outline-container-org8547ad6" class="outline-4">
+<h4 id="org8547ad6">Pure Imaginary Inputs</h4>
+<div class="outline-text-4" id="text-org8547ad6">
+<p>
+Instead of just applying the formula to a function—say \(f(x) = x^2 -
+2x + 5\)—and having it spit out an inexplicable complex answer that we
+don&rsquo;t know how to interpret, let&rsquo;s approach it from the other
+direction. Let&rsquo;s extend \(f\) to the imaginary numbers: \(ai, \forall a
+\in \mathbb{R}\), and see if we learn anything useful.
+</p>
+
+<p>
+We&rsquo;ll start off nice and easy and see what happens for \(f(x) =
+x^2\).
+For a typical input \(ai\) we get,
+</p>
+\begin{align*}
+f(ai) = (ai)^2 = -a^2.
+\end{align*}
+
+<p>
+I know, you&rsquo;re shocked.
+</p>
+
+<p>
+The point isn&rsquo;t that this is a surprising result—because it isn&rsquo;t—but
+rather about what it implies about imaginary and complex roots. I&rsquo;ll
+graph it on the complex plane. Or at least <i>a</i> complex plane. I&rsquo;m
+going to break a bit with tradition here: I want to graph inputs on
+the horizontal axis so, since I&rsquo;m taking imaginary numbers as inputs,
+I&rsquo;ll make the <i>horizontal</i> axis the imaginary axis and the vertical
+axis will still be the (real) y-axis. I&rsquo;ll also overlay the real
+valued function on top for comparison.
+</p>
+
+<div class="figure" id="orgc55cb6c">
+
+<div id="org0c5a7a6" class="figure">
+<p><img src="images/phantom-x2.png" alt="phantom-x2.png" />
+</p>
+<p><span class="figure-number">Figure 4: </span><br />
+ <b>The function \(f(x) = x^2\) with real inputs (blue)</b><br />
+ <b>and imaginary inputs (green).</b></p>
+</div>
+
+</div>
+
+<p>
+The green parabola in Figure <a href="#org0c5a7a6">4</a> is what I&rsquo;m calling
+a &ldquo;phantom parabola&rdquo; because you don&rsquo;t see it when you only graph real
+inputs/outputs of the function. In reality the two plots exist on
+separate planes. Since my horizontal axis is doubling as both the
+x-axis <i>and</i> the imaginary axis, it&rsquo;s like adding a third dimension to
+the XY-plane and then folding it in on itself. You could plot
+it in 3D but it&rsquo;s easier to see what&rsquo;s going on when they&rsquo;re drawn
+flat. It&rsquo;s also much easier to sketch out by hand that way.
+</p>
+
+<p>
+The important thing about phantoms is that—thanks to the imaginary
+unit, \(i\)—they always open in the opposite direction as the real
+parabola. So if the real parabola doesn&rsquo;t cross the x-axis—doesn&rsquo;t
+have real roots—the phantom <i>does</i> and vice versa. And remember, the
+phantom is actually crossing the <i>imaginary</i> axis because the inputs
+are imaginary. In other words the roots of the function aren&rsquo;t
+imaginary simply because we&rsquo;ve found the coefficient for the imaginary
+term. The roots are imaginary because they&rsquo;re actually <i>on</i> the
+imaginary axis.
+</p>
+
+<div class="theorem" id="org38dfbe2">
+<p>
+<span class="underline"><b>Geometric Interpretation of Imaginary Roots - The Phantom Parabola</b></span>
+</p>
+
+<p>
+Quadratic functions with purely imaginary roots can be thought of as
+having a &ldquo;phantom&rdquo;—or imaginary—parabola associated with it. For
+quadratic function \(f\) with minimum (or maximum) point at coordinates
+\((0, y_{min})\), the phantom is constructed by reflecting \(f\) across
+the line \(y = y_{min}\).
+</p>
+
+<p>
+Then \(f\) has imaginary roots if and only if its phantom crosses the
+x-axis. The coefficients of the imaginary roots are the roots of the
+phantom.
+</p>
+
+<div class="figure" id="org99a8164">
+<div class="shrink" id="orgd3ebef1">
+<p>
+<img src="images/x2_plus_4.png" alt="x2_plus_4.png" />
+<img src="images/imaginary-roots.gif" alt="imaginary-roots.gif" />
+</p>
+
+</div>
+
+<p>
+<b>\(f(x) = x^2 + 4\) (blue) and its phantom (green)</b><br />
+<b>with roots at \(x = \pm 2i\)</b>
+</p>
+
+</div>
+
+</div>
+</div>
+</div>
+
+<div id="outline-container-org0638051" class="outline-4">
+<h4 id="org0638051">Complex Inputs</h4>
+<div class="outline-text-4" id="text-org0638051">
+<p>
+Alright, we&rsquo;re getting there.
+</p>
+
+<p>
+Imaginary inputs give us phantoms but what about complex inputs? Well
+we can consider pure imaginary inputs as complex inputs \(\alpha{} +
+\beta{}i\) with \(\alpha{} = 0\). So really the phantoms that we&rsquo;ve seen
+so far represent just a &ldquo;slice&rdquo; of the entire function. Pick a
+different value of \(\alpha{}\), get a different slice.
+</p>
+
+<p>
+Let&rsquo;s look at \(f(x) = x^2\) again but this time with complex inputs and
+different values of \(\alpha{}\).
+</p>
+
+\begin{align*}
+f(\alpha{} + \beta{}i) &= (\alpha{} + \beta{}i)^2 \\
+&= (\alpha{}^2 - \beta{}^2) + 2\alpha{}\beta{}i
+\end{align*}
+</div>
+
+<ul class="org-ul">
+<li><a id="org996498d"></a>Vector Plot<br />
+<div class="outline-text-5" id="text-org996498d">
+<p>
+There are few different ways we can visualize this. The first thing
+I&rsquo;ll do is represent the output as vectors.
+</p>
+
+<p>
+Let
+</p>
+\begin{align*}
+p(\beta{}) &= 2\alpha{}\beta{},& \text{and}\\
+q(\beta{}) &= \alpha{}^2 - \beta{}^2
+\end{align*}
+
+<p>
+for some fixed value of \(\alpha{}\). Then
+</p>
+\begin{align}
+\label{eq:complex-vectors}
+r(t) &= (p(t), q(t)),& \forall t \in \mathbb{R}.
+\end{align}
+
+<p>
+I chose \(p\) and \(q\) the way I did because of how I chose my axes. The
+horizontal axis is my imaginary axis so I wanted the imaginary term as
+the x-coordinate for my vectors. Plotting those vectors we get this:
+</p>
+
+<div class="can" id="org7744612">
+<canvas id='x2-slices'></canvas><br>
+<input id='x2-slices-slider' type='range' value='1' min='-2' max='2' step='0.1' /><br>
+<label id='x2-slider-label' for='x2-slices-slider'>α = 1</label>
+
+</div>
+
+<p>
+For \(\alpha{} + \beta{}i\) to be a root of \(f\) we need to find some
+vector in (\ref{eq:complex-vectors}) with both components equal to
+zero. What we&rsquo;re looking for then is some slice—some value of
+\(\alpha{}\)—where the vector plot passes through the origin. Once we&rsquo;ve
+found that we&rsquo;ve got a value of \(\alpha\) for which there is <i>some</i>
+value of \(\beta{}\) which gives us the zero vector. The plot won&rsquo;t tell
+us what \(\beta\) is but it will help us narrow in on the real part of
+the solution. For \(f(x) = x^2\) the plot of the vectors of \(r\) only passes
+through the origin when \(\alpha = 0\).
+</p>
+</div>
+</li>
+
+<li><a id="org134f469"></a>Individual Plots<br />
+<div class="outline-text-5" id="text-org134f469">
+<p>
+The next thing we can do is plot the real and imaginary parts of the
+output as separate functions.
+</p>
+
+<div class="can" id="org27ce415">
+<canvas id='x2-slices-complex'></canvas><br>
+<input id='x2-slices-complex-slider' type='range' value='1' min='-2' max='2' step='0.1' /><br>
+<label id='x2-complex-slider-label' for='x2-slices-slider'>α = 1</label>
+
+<p>
+<b>The functions \(p(\beta) = 2\alpha{}\beta{}\) (red)</b><br />
+<b>and \(q(\beta) = \alpha{}^2 - \beta{}^2\) (green)</b>
+</p>
+
+</div>
+
+<p>
+Since \(p\) is linear with slope \(2\alpha\), when \(\alpha = 0\) the slope
+is also zero and the line coincides with the x-axis. In fact, no
+matter what quadratic we start with, when its \(p\) function aligns with
+the x-axis, we&rsquo;ve found \(\alpha\).
+</p>
+
+<p>
+More imporantly though, when we find the correct value of \(\alpha\),
+\(q\) becomes the same phantom as the one in Figure
+<a href="#org0c5a7a6">4</a> and its real roots, if it has them, are the
+coefficients of the imaginary terms in the roots of \(f\). If the
+phantom doesn&rsquo;t have real roots then \(\alpha{}\) is a real root of
+\(f\).
+</p>
+
+<p>
+Notice that, instead of considering \(q\) as a function of \(\beta\), we
+could consider it a function of \(\beta{}i\) without changing anything,
+since
+</p>
+\begin{align*}
+q(\beta{}i) = \alpha{}^2 + (\beta{}i)^2 = \alpha{}^2 - \beta{}^2.
+\end{align*}
+
+<p>
+Doing that puts \(q\) back in complex territory with roots on the
+imaginary axis. I don&rsquo;t think that&rsquo;s necessary for building intuition
+but I do like that it&rsquo;s an interpretation which is consistent with the
+previous section on pure imaginary inputs. But it&rsquo;s probably simpler
+to just think of the imaginary parabola finding the coefficients of
+the imaginary parts of the roots.
+</p>
+</div>
+</li>
+
+<li><a id="org6baf7a1"></a>Generalizing<br />
+<div class="outline-text-5" id="text-org6baf7a1">
+<p>
+Okay that was, I think, a sufficiently thorough dissection of \(f(x) = x^2\)
+so let&rsquo;s see what it looks like when it&rsquo;s a <i>bit</i> more general.
+</p>
+
+<p>
+Let \(f(x) = x^2 +bx + c\) and apply to \(x = \alpha{} + \beta{}i\).
+</p>
+\begin{align}
+f(\alpha{} + \beta{}i) &= (\alpha{} + \beta{}i)^2 + b(\alpha{} + \beta{}i) + c \nonumber \\
+&= \alpha{}^2 - \beta{}^2 + 2\alpha{}\beta{}i + b\alpha{} + b\beta{}i + c \nonumber \\
+&= \alpha{}^2 + b\alpha{} + c - \beta{}^2 + 2\alpha{}\beta{}i + b\beta{}i \nonumber \\
+\label{eq:general-complex-solution}
+&= (f(\alpha{}) - \beta{}^2) + \beta{}(2\alpha{} + b)i
+\end{align}
+
+<p>
+And then from (\ref{eq:general-complex-solution}) we can take
+</p>
+\begin{align}
+\label{eq:complex-p}
+p(\beta) &= \beta{}(2\alpha{} + b),& \text{and}\\
+\label{eq:complex-q}
+q(\beta{}) &= f(\alpha) - \beta{}^2,
+\end{align}
+
+<p>
+and generate the same kind of plots we did before. Notice from
+(\ref{eq:complex-q}) that since \(q\) doesn&rsquo;t have a linear \(\beta\)
+term, the phantom will <i>always</i> be centered on the y-axis even if
+(real valued) \(f\) isn&rsquo;t.
+</p>
+
+<div class="theorem" id="org8e302bf">
+<p>
+<span class="underline"><b>Example - Finding complex roots geometrically</b></span>
+</p>
+
+<p>
+Let \(f(x) = x^2 - 2x + 5\). Then
+</p>
+\begin{align*}
+p(\beta) &= \beta{}(2\alpha{} - 2),& \text{and}\\
+q(\beta) &= \alpha{}^2 -2\alpha{} + 5 - \beta{}^2.
+\end{align*}
+
+<p>
+As before we&rsquo;ll take the set of vectors
+</p>
+\begin{align*}
+r(t) &= (p(t), q(t)),& \forall t \in \mathbb{R}
+\end{align*}
+
+<p>
+and look for a slice of the function where \(r\), in purple, passes
+through the origin and/or where the slope of \(p\), in light blue, becomes
+zero.
+</p>
+
+<div class="can" id="orgae22349">
+<canvas id='complex-vec-plot'></canvas>
+<canvas id='complex-roots'></canvas><br>
+<input id='complex-roots-a' type='range' value='0' min='-2' max='2' step='0.1' /><br>
+<label id='complex-roots-a-label' for='complex-roots-a'>α = 0</label>
+
+<p>
+<b>Finding the complex roots of \(f(x) = x^2 -2x + 5\) geometrically.</b><br />
+<b>\(f(x) = 0\) when \(x = 1 \pm 2i\).</b>
+</p>
+
+</div>
+
+</div>
+
+<p>
+That was a long walk to get somewhere that, at the end of the day,
+isn&rsquo;t all that complicated so I wouldn&rsquo;t blame you if you&rsquo;ve forgotten
+what I was trying to find. I wanted was to show that
+(\ref{eq:simplest-quad-formula}), &ldquo;the simplest quadratic formula,&rdquo;
+was valid for finding both real and complex roots of quadratics. To do
+that I need to show that \(\alpha{} = x_{min}\) which would mean
+\(f(\alpha) = y_{min}\).
+</p>
+
+<p>
+Setting (\ref{eq:complex-p}) equal to zero gives two possibilities:
+</p>
+
+<ol class="org-ol">
+<li>\(\beta = 0\), which would correspond to a real solution, or</li>
+<li>\(2\alpha{} + b = 0\), giving \(\alpha = \frac{-b}{2}\) which is the
+definition of \(x_{min}\) we found in (\ref{def:x-min}).</li>
+</ol>
+
+<p>
+Since \(\alpha = x_{min}\), \(\;f(\alpha) = y_{min}\). Then we can use
+(\ref{eq:complex-q}) to find \(\beta\).
+</p>
+\begin{align*}
+y_{min} - \beta{}^2 &= 0\\
+\beta &= \pm \sqrt{y_{min}}.
+\end{align*}
+
+<p>
+With both \(\alpha\) and \(\beta\) we have our complex roots at
+</p>
+\begin{align*}
+x &= \alpha \pm \beta{}i\\
+&= x_{min} \pm i\sqrt{y_{min}}.
+\end{align*}
+
+<p>
+Moving \(i\) inside the square root gives
+(\ref{eq:simplest-quad-formula}),
+</p>
+\begin{align*}
+x &= x_{min} \pm \sqrt{-y_{min}}.
+\end{align*}
+
+<p>
+And with that we can fix Figure <a href="#orgc9c4896">3</a>.
+</p>
+
+<div class="figure" id="org8ba9241">
+<p>
+<img src="images/geo-real.png" alt="geo-real.png" />
+<img src="images/geo-complex-roots.png" alt="geo-complex-roots.png" />
+</p>
+
+<p>
+<b>Complete Geometric Intuition</b> <br />
+<b>for the Solutions of Quadratic Functions</b> <br />
+\(f(x) = x^2 + bx + c\)
+</p>
+
+</div>
+
+<div class="theorem" id="orge9da4b0">
+<p>
+<span class="underline"><b>Geometric Interpretation of Complex Roots - The Phantom Parabola</b></span>
+</p>
+
+<p>
+A quadratic function can be thought of as having a &ldquo;phantom&rdquo;—or
+imaginary—parabola associated with it. For quadratic function \(f\) with
+minimum (or maximum) point at coordinates \((x_{min}, y_{min})\), the
+phantom is constructed by reflecting \(f\) across the line \(y = y_{min}\)
+and then translating so it&rsquo;s centered on the y-axis.
+</p>
+
+<p>
+Then \(f\) has complex (or purely imaginary) roots if and only if its
+phantom crosses the x-axis: The real part of the solution is \(x_{min}\);
+the coefficients of the imaginary parts are the roots of the
+phantom.
+</p>
+
+<div class="can" id="orgcba7da8">
+
+<div id="orga628f03" class="figure">
+<p><img src="images/finding-roots.gif" alt="finding-roots.gif" />
+</p>
+</div>
+
+<p>
+<b>Finding complex roots by constructing the phantom for</b><br />
+<b>\(f(x) = x^2 - 2x + 5\)</b>
+</p>
+
+</div>
+
+</div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgeeab73e" class="outline-2">
+<h2 id="orgeeab73e">Loose Ends</h2>
+<div class="outline-text-2" id="text-orgeeab73e">
+</div>
+<div id="outline-container-orgf12d15b" class="outline-3">
+<h3 id="orgf12d15b">Does it generalize?</h3>
+<div class="outline-text-3" id="text-orgf12d15b">
+<p>
+All my examples have been of functions like \(f(x) = x^2 + bx + c\) but
+I&rsquo;ve claimed that <i>all</i> quadratic functions have a phantom. Let&rsquo;s
+prove that.
+</p>
+
+<p>
+We know that given a quadratic \(f(x) = ax^2 + bx + c\), we can
+always arrange to have another one, \(g\), with the same roots.
+</p>
+
+\begin{align}
+\label{eq:equivalent-roots}
+g(x) &= \frac{f(x)}{a}.
+\end{align}
+
+<p>
+Since (\ref{eq:equivalent-roots}) is a scaled version of \(f\) the
+horizontal position of its minimum doesn&rsquo;t change so both \(f\) and \(g\)
+have the same \(x_{min}\) and therefore the same real part of their
+complex solutions. We find the imaginary terms
+by solving (\ref{eq:complex-q}) for \(g\).
+</p>
+
+<p>
+Let \(q_g(\beta) = g(x_{min}) - \beta{}^2\). Then
+</p>
+\begin{align}
+g(x_{min}) - \beta{}^2 &= 0 \nonumber \\
+\frac{f(x_{min})}{a} - \beta{}^2 &= 0,& \text{from } (\ref{eq:equivalent-roots}) \nonumber \\
+\label{eq:q-sub-f}
+f(x_{min}) - a\beta{}^2 = 0.
+\end{align}
+
+<p>
+We can take the left side of (\ref{eq:q-sub-f}) as a function, \(q_f\),
+with the same roots as \(q_g\).
+</p>
+
+\begin{align*}
+q_f(\beta) = f(x_{min}) - a\beta{}^2.
+\end{align*}
+
+<p>
+The function \(q_f\) is precisely the phantom of \(f\) and since its roots
+are the same as \(q_g\text{'s}\), \(q_f\) also gives us the imaginary
+parts of \(f\text{'s}\) roots. So the intuition does hold for all
+quadratics.
+</p>
+
+<div class="figure" id="orge683c77">
+
+<div id="org4374a4f" class="figure">
+<p><img src="images/general-phantom.png" alt="general-phantom.png" />
+</p>
+<p><span class="figure-number">Figure 5: </span><br />
+ <b>Quadratic function \(f\) (blue), it&rsquo;s phantom (dark green),</b><br />
+ <b>and the phantom of associated quadractic \(g\) (light green).</b></p>
+</div>
+
+</div>
+
+<div class="theorem" id="orge5477d0">
+<p>
+<span class="underline"><b>The Quadratic Formula</b></span>
+</p>
+
+<p>
+It won&rsquo;t shock you to find out that we can also derive the (normal)
+quadratic formula again with the help of function \(g\), where
+</p>
+
+\begin{align*}
+g(x) = x^2 + \frac{b}{a}x + \frac{c}{a}
+\end{align*}
+
+<p>
+First find \(x_{min}\). Since \(f\) and \(g\) have the same \(x_{min}\) we can
+use the formula we already have, which will work for \(g\), to find it.
+</p>
+
+\begin{align*}
+x_{min} &= \frac{-b}{2a}.
+\end{align*}
+
+<p>
+Then we can find \(y_{min}\).
+</p>
+
+\begin{align*}
+y_{min} &= f(x_{min})\\
+&= a\left(\frac{-b}{2a}\right) + b\left(\frac{-b}{2a}\right) + c\\
+&= \frac{ab^2}{4a^2} - \frac{b^2}{2a} + c\\
+&= \frac{ab^2 - 2ab^2 + 4a^2c}{4a^2}\\
+&= \frac{-b^2 + 4ac}{4a}
+\end{align*}
+
+
+<p>
+The roots are at
+</p>
+\begin{align*}
+x &= x_{min} \pm \sqrt{-g(x_{min})}
+\end{align*}
+<p>
+which by (\ref{eq:equivalent-roots}) is
+</p>
+
+\begin{align}
+x &= x_{min} \pm \sqrt{\frac{-f(x_{min})}{a}} \nonumber \\
+\label{eq:general-simplest-qf}
+&= x_{min} \pm \sqrt{\frac{-y_{min}}{a}} \\
+&= \frac{-b}{2a} \pm \sqrt{-\frac{-b^2 + 4ac}{4a^2}} \nonumber \\
+&= \frac{-b \pm \sqrt{b^2 - 4ac}}{2a} \nonumber 
+\end{align}
+
+<p>
+Equation (\ref{eq:general-simplest-qf}) is the general form of &ldquo;the
+simplest quadratic formula&rdquo; and it&rsquo;s only <i>very slightly</i> less simple
+than (\ref{eq:simplest-quad-formula}).
+</p>
+
+<p>
+As with <a href="#orgb793486">the simple quadratic formula</a> you can see that the whole mess
+of terms actually <i>means</i> something geometrically. The first part,
+\(\frac{-b}{2a} = x_{min}\) and the second part, \(\frac{\sqrt{b^2 -
+4ac}}{2a} = \sqrt{\frac{-y_{min}}{a}}\).
+</p>
+
+</div>
+</div>
+</div>
+
+<div id="outline-container-org82ae8dc" class="outline-3">
+<h3 id="org82ae8dc">The Phantom&rsquo;s Fangs</h3>
+<div class="outline-text-3" id="text-org82ae8dc">
+<p>
+Another way to plot the functions from
+(\ref{eq:general-complex-solution}) is to plot the vectors&rsquo;
+<i>magnitudes.</i> Then we have a plot that&rsquo;s positive everywhere <i>except</i>
+at the roots where it equals zero. When you get close to the correct
+value of \(\alpha\), the graph starts to point directly at the correct
+values of \(\beta\).
+</p>
+
+<div class="can" id="org68ffa76">
+<canvas id='fangs'></canvas><br>
+<input id='fangs-a' type='range' value='0' min='-4' max='4' step='0.1' /><br>
+<label id='fangs-a-label' for='fangs-a'>α = 0</label>
+
+<p>
+<b>Finding \(\alpha\) and \(\beta\) for \(f(x) = x^2 + 4x + 13\)</b>
+</p>
+
+</div>
+</div>
+</div>
+
+<div id="outline-container-org8a668c1" class="outline-3">
+<h3 id="org8a668c1">Higher Order Polynomial Functions</h3>
+<div class="outline-text-3" id="text-org8a668c1">
+<p>
+Of course there&rsquo;s no reason why this approach can&rsquo;t be extended to
+higher order polynomial functions. We can always generate a pair of
+functions as in (\ref{eq:general-complex-solution}) and plot them. For
+some polynomial function \(f\) of order \(m\) we can represent \(f\) as the
+Taylor Series of \(f\) extended to the complex numbers. Although I&rsquo;ll
+write it a bit differently than you might expect in order for it to be
+in terms of \(\alpha\) and \(\beta\).
+</p>
+
+\begin{align}
+\label{eq:complex-taylor}
+f(\alpha{} + \beta{}i) &= \sum_{n=0}^m \frac{f^{(n)}(\alpha)(\beta{}i)^n}{n!}
+\end{align}
+<p>
+Where \(f^{(n)}(\alpha)\) is the \(n\text{th}\) derivative of \(f\)
+evaluated at \(\alpha\).
+</p>
+
+<p>
+All the even terms of (\ref{eq:complex-taylor}) make up the real part
+of the solution—what I&rsquo;ve previously called \(q(\beta)\)—and all the odd
+terms make up \(p(\beta)\) or the imaginary part. These aren&rsquo;t nearly as
+intuitive though.
+</p>
+
+<p>
+In general the imaginary parts of the roots are found where \(p\) and
+\(q\) intersect both with each other and the x-axis.  The phantom idea
+works with quadratics because \(p\) is linear and aligns with the x-axis
+when we have the correct value of \(\alpha\). The points where \(q\)
+intersects \(p\) and where \(q\) intersects the x-axis are the same 
+so we can ignore \(p\) for the purposes of building intuition and
+concentrate on the &ldquo;phantom.&rdquo;
+</p>
+
+<p>
+For higher order polynomials, neither \(p\) nor \(q\) will be linear—from
+(\ref{eq:complex-taylor}) it&rsquo;s clear that one will always be of order
+\(m\) and the other of order \(m\) minus one—so we can&rsquo;t ignore it. That
+and the fact that higher order functions just have more roots makes it
+much less obvious how to go about constructing the &ldquo;phantoms.&rdquo;
+</p>
+
+<p>
+But they&rsquo;re still fun to look at so here are the various graphs for
+\(f(x) = x^5 - 1\).
+</p>
+
+<div class="can" id="org71ad5be">
+<p>
+<b>Graphically Approximating the 5ᵗʰ roots of unity</b>
+</p>
+
+<canvas id='roots-of-unity-imaginary'></canvas>
+<canvas id='roots-of-unity-vectors'></canvas>
+<canvas id='roots-of-unity-magnitudes'></canvas><br>
+<input id='unity-a' type='range' value='1' min='-2' max='2' step='0.1' /><br>
+<label id='unity-a-label' for='unity-a'>α = 1</label>
+
+\begin{align*}
+p(\beta) &= \beta{}^5 - 10\alpha{}^2\beta{}^3 + 5\alpha{}^4\beta{}& \text{(light blue)}\\
+q(\beta) &= 5\alpha{}\beta{}^4 - 10\alpha{}^3\beta{}^2 + \alpha{}^5 - 1& \text{(green)}\\
+r(t) &= (p(t), q(t)), \forall t \in \mathbb{R}& \text{(dark purple)}\\
+m(t) &= |r(t)|, \forall t \in \mathbb{R}& \text{(light purple)}
+\end{align*}
+
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgad59360" class="outline-3">
+<h3 id="orgad59360">Geometric Algebra</h3>
+<div class="outline-text-3" id="text-orgad59360">
+<p>
+I&rsquo;ve been playing around with geometric algebra (GA) lately which is
+part of what prompted me to consider a geometric interpretation of
+complex roots. So when I started exploring this I was doing it in
+GA. I decided to stick to complex numbers because that&rsquo;s what most
+people are familiar with and people learning it for the first time
+probably don&rsquo;t want to learn GA on top of it. There&rsquo;s not much
+difference between the two approaches but GA does make one thing more
+clear.
+</p>
+
+<p>
+I won&rsquo;t go into the details of GA here but, briefly, when I did
+similar derivations to the ones above I ended up with this thing which
+is a 2D multivector.
+</p>
+
+\begin{align*}
+f(\alpha{} + \beta{}e_{12}) = \alpha{} + \beta{}e_{12} + \beta(2\alpha{} + b)e_1 + (f(\alpha) - \beta{}^2)e_2.
+\end{align*}
+
+<p>
+In GA, \(e_{12}\) is called the unit bivector and \((e_{12})^2 = - 1\)
+making it the GA equivalent of \(i\). Similarlly, \(\alpha +
+\beta{}e_{12}\) is the GA equivalent of a complex number while \(e_1\)
+and \(e_2\) are the unit basis vectors of the 2D space: basically the
+\(\overrightarrow{x}\) and \(\overrightarrow{y}\) unit vectors. When we
+fix \(\alpha\) at some value we can interpret the other three components
+as a 3D vector:
+</p>
+
+\begin{align*}
+v = \beta{}(2\alpha{} + b)\overrightarrow{x} + (f(\alpha) - \beta{}^2)\overrightarrow{y} + \beta{}\overrightarrow{z}, \nonumber \\
+\end{align*}
+
+<p>
+with \(\overrightarrow{z}\) being the imaginary axis. We can represent
+the coefficients as functions of \(\beta\):
+</p>
+
+\begin{align*}
+v = p(\beta)\overrightarrow{x} + q(\beta)\overrightarrow{y} + r(\beta{})\overrightarrow{z}
+\end{align*}
+
+<p>
+The \(\overrightarrow{x}\) and \(\overrightarrow{y}\) components are just
+the real and imaginary parts of
+(\ref{eq:general-complex-solution}). In the complex case I
+<i>interpreted</i> those as vectors but here in GA-land they actually are
+the coefficients of the (real) 2D vectors. The three
+graphs from the section on <a href="#org0638051">Complex Inputs</a> are generated by taking
+every pairing of \(p, q\) and \(r\) and plotting them parametrically. And
+what the GA approach makes clear that the complex number approach
+doesn&rsquo;t, in my opinion, is that each of them is just a
+2D projection of a set of 3D—or 4D if you want to count
+\(\alpha\)—vectors. Each actually sits on a separate plane.
+</p>
+
+<p>
+That&rsquo;s the <i>real</i> reason why I chose the horizontal axis to double as
+the imaginary axis when I was exploring <a href="#org8547ad6">Pure Imaginary Inputs</a>. The
+function \(q\), which gives us the phantom, is the \(\overrightarrow{y}\)
+component of that 3D vector. When plotting it against the
+\(\overrightarrow{z}\) (imaginary) component, the vertical axis is
+already spoken for, so the imaginary axis has to be horizontal by
+default. But by the same argument, when I plot \(p\) the imaginary axis
+ends up being vertical. That results in a slightly different plot than
+we saw before because previously I had rotated it 90° to make the
+intersections of \(p\) and \(q\) obvious. But with the full picture we can
+see what&rsquo;s really going on.
+</p>
+
+<div class="figure" id="org24292fe">
+
+<div id="org399d236" class="figure">
+<p><img src="images/3d-complex.gif" alt="3d-complex.gif" />
+</p>
+</div>
+
+<p>
+<b>Phantom Plots for \(f(x) = x^2 - 2x + 5\) at \(\alpha = 1\)</b>
+</p>
+
+</div>
+
+<p>
+With the complex numbers approach I had to be a bit hand-wavy about
+how we could think about the imaginary roots being on the imaginary
+axis. In this approach there&rsquo;s nothing to justify. The
+imaginary roots simply <i>are</i> on the imaginary axis and there&rsquo;s nowhere
+else they could be.
+</p>
+
+<div class="can" id="orgef3745a">
+<img id='unity-anim' src='images/3d-unity.gif' alt='3d-unity.gif'>
+<p>
+<b>Phantoms Plots for \(f(x) = x^5 - 1\)</b>
+</p>
+
+<div class="left" id="orgf6c0ea4">
+<div><input id='unity-roots-1' type='radio' name='unity' value='1' /><label id='ur1-label' for='unity-roots-1'>α = 1</label></div>
+<div><input id='unity-roots-2' type='radio' name='unity' value='2' checked /><label id='ur2-label' for='unity-roots-2'>α ≈ 0.309</label></div>
+<div><input id='unity-roots-3' type='radio' name='unity' value='3' /><label id='ur3-label' for='unity-roots-3'>α ≈ -0.809</label></div>
+
+</div>
+
+</div>
+
+<script src='./javascript/x2-vec-slices.js'></script>
+<script src='./javascript/x2-slices-complex.js'></script>
+<script src='./javascript/complex-roots.js'></script>
+<script src='./javascript/complex-vec-plot.js'></script>
+<script src='./javascript/fangs.js'></script>
+<script src='./javascript/roots-of-unity.js'></script>
+<script src='./javascript/roots-of-unity-select.js'></script>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
